@@ -1,0 +1,17 @@
+﻿@using BlazorDataBinding;
+@page "/"
+<h1>@PageTitle</h1>
+<div>
+    <p>Below is a regular input tag with @@bind attribute</p>
+    <input @bind="BoundValue" />
+</div>
+
+<div>
+    <p>THe bound value is: "@BoundValue"</p>
+</div>
+
+<ValueBindingComponent @bind="BoundValue" />
+@code {
+    String PageTitle = "Hello, this is the homepage";
+    String BoundValue;
+}

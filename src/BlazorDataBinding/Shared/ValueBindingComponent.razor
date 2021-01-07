@@ -1,0 +1,19 @@
+﻿
+<div>
+    <p>I'm a custom-built component that uses @@bind attribute</p>
+    <input @bind="cascadingValue" />
+</div>
+
+@code {
+    [Parameter]
+    public String value { get; set; }
+
+    private string cascadingValue
+    {
+        get => value;
+        set => ValueChangedEvent.InvokeAsync(value);
+    }
+
+    [Parameter]
+    public EventCallback<String> ValueChangedEvent { get; set; }
+}
